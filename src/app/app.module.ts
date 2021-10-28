@@ -12,6 +12,8 @@ import { SharedService } from './shared.service';
 
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { EmployeeComponent } from './employee/employee.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,11 +22,13 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
     ShowDepComponent,
     AddEditDepComponent,
     ShowEmpComponent,
-    AddEditEmpComponent
+    AddEditEmpComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [SharedService],
   bootstrap: [AppComponent]
