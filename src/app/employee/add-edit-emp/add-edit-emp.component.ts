@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+import {SharedService} from 'src/app/shared.service';
 
 @Component({
   selector: 'app-add-edit-emp',
@@ -7,9 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddEditEmpComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:SharedService) { }
+
+  @Input() emp:any;
+  EmployeeId:string="";
+  EmployeeName:string="";
+
+  addEmployee():void{
+    var val ={EmployeeId:this.EmployeeId,
+      EmployeeName:this.EmployeeName}
+    this.service.addEmployee(val).subscribe(res =>{
+      alert(res.toString());
+    });
+  }
+
+  updateEmployee():void{
+    var val ={EmployeeId:this.EmployeeId,
+      EmployeeName:this.EmployeeName}
+      this.service.updateEmployee(val).subscribe(res =>{
+        alert(res.toString());
+      });
+  }
 
   ngOnInit(): void {
+    this.EmployeeId=this.emp.EmployeeId;
+    this.EmployeeName=this.emp.EmployeeName;
   }
 
 }
