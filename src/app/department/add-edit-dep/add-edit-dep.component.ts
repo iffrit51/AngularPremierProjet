@@ -19,11 +19,15 @@ export class AddEditDepComponent implements OnInit {
     DepartmentName:this.DepartmentName}
     this.service.addDepartment(val).subscribe(res =>{
       alert(res.toString());
-    })
+    });
   }
 
   updateDepartment():void{
-    
+    var val ={DepartmentId:this.DepartmentId,
+      DepartmentName:this.DepartmentName}
+      this.service.updateDepartment(val).subscribe(res =>{
+        alert(res.toString());
+      });
   }
 
   ngOnInit(): void {

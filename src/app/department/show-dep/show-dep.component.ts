@@ -44,6 +44,14 @@ export class ShowDepComponent implements OnInit {
     this.refreshDepList();
   }
   
+  deleteClick(item:any){
+    if(confirm('Êtes vous sur de vouloir supprimer ?')){
+      this.service.deleteDepartment(item.DepartmentId).subscribe(data=>{
+        alert(data.toString());
+        this.refreshDepList();
+      })
+    }
+  }
 
   refreshDepList(){
     this.service.getDepList().subscribe(data=>{
